@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Stanford Classifier"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Heiko/Desktop/Eclipse Projekte/Stanford Classifier/Stanford Classifier/stanford-classifier.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Heiko/Desktop/Eclipse Projekte/Stanford Classifier/Stanford Classifier/stanford-classifier-3.8.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Heiko/Desktop/Eclipse Projekte/Stanford Classifier/Stanford Classifier/stanford-classifier-3.8.0-javadoc.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Heiko/Desktop/Eclipse Projekte/Stanford Classifier/Stanford Classifier/stanford-classifier-3.8.0-sources.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="Stanford Classifier"/>
+</classpath>
