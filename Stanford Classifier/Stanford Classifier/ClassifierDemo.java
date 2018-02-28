@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import edu.stanford.nlp.classify.Classifier;
 import edu.stanford.nlp.classify.ColumnDataClassifier;
@@ -21,15 +22,17 @@ class ClassifierDemo {
   public static void main(String[] args) throws Exception {
     if (args.length > 0) {
       where = args[0] + File.separator;
+      
+      PrintStream o = new PrintStream(new File("output.txt"));
+      System.setOut(o);
     }
 
     System.out.println("Training ColumnDataClassifier");
     ColumnDataClassifier cdc = new ColumnDataClassifier(where + "examples/WebApiDataset.prop");
-    cdc.trainClassifier(where + "examples/cheeseDisease.train");
-
+    cdc.trainClassifier(where + "examples/WebApiDatasetClassesAggregated.train");
     System.out.println();
     System.out.println("Testing predictions of ColumnDataClassifier");
-    for (String line : ObjectBank.getLineIterator(where + "examples/WebApiDataset.test", "utf-8")) {
+    for (String line : ObjectBank.getLineIterator(where + "examples/WebApiDatasetClassesAggregated.test", "utf-8")) {
       // instead of the method in the line below, if you have the individual elements
       // already you can use cdc.makeDatumFromStrings(String[])
       Datum<String,String> d = cdc.makeDatumFromLine(line);
@@ -38,10 +41,10 @@ class ClassifierDemo {
 
     System.out.println();
     System.out.println("Testing accuracy of ColumnDataClassifier");
-    Pair<Double, Double> performance = cdc.testClassifier(where + "examples/WebApiDataset.test");
+    Pair<Double, Double> performance = cdc.testClassifier(where + "examples/WebApiDatasetClassesAggregated.test");
     System.out.printf("Accuracy: %.3f; macro-F1: %.3f%n", performance.first(), performance.second());
 
-    demonstrateSerialization();
+/*    demonstrateSerialization();
     demonstrateSerializationColumnDataClassifier();
   }
 
@@ -109,6 +112,7 @@ class ClassifierDemo {
       System.out.printf("%s  =origi=>  %s (%.4f)%n", line, cdc.classOf(d), cdc.scoresOf(d).getCount(cdc.classOf(d)));
       System.out.printf("%s  =deser=>  %s (%.4f)%n", line, cdc2.classOf(d2), cdc2.scoresOf(d).getCount(cdc2.classOf(d)));
     }
+    */
   }
 
 }
